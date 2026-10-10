@@ -1,5 +1,7 @@
 # PC Stat Monitor
 
+Found my dad's old iPhone 5s collecting dust in the attic, so I decided to give it a second life as a PC monitoring display before its aging battery decided to get pregnant. Now it monitors my Ryzen 5 9600X
+
 A lightweight, self-hosted Windows PC monitoring dashboard built with **Node.js, systeminformation, HTML, CSS, and vanilla JavaScript**. It turns an old iPhone 5s into a dedicated landscape display for the PC's live system statistics.
 
 The dashboard is designed to be simple: no frontend framework, no database, and no cloud service required.
