@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SRINI'S PC</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="identity">
+                <h1>SRINI'S PC</h1>
+                <span id="cpuName">
+                    Ryzen 5 9600X
+                </span>
+            </div>
+
+            <div class="live-status">
+                <span class="pulse"></span>
+                SYSTEM ONLINE
+            </div>
+
+            <div id="clock" class="clock">
+                00:00:00
+            </div>
+
+        </header>
+
+
+        <!-- MAIN TELEMETRY -->
+        <section class="main-grid">
+
+            <!-- CPU -->
+            <article class="panel cpu-panel">
+
+                <div class="panel-label">
+                    PROCESSOR
+                </div>
+
+                <div class="cpu-content">
+
+                    <div
+                        class="cpu-ring"
+                        id="cpuRing"
+                    >
+
+                        <div class="ring-center">
+
+                            <strong id="cpuUsage">
+                                0%
+                            </strong>
+
+                            <span>
+                                LOAD
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cpu-data">
+
+                        <div class="big-metric">
+
+                            <span>
+                                TEMPERATURE
+                            </span>
+
+                            <strong id="cpuTemp">
+                                --°C
+                            </strong>
+
+                        </div>
+
+
+                        <div class="big-metric">
+
+                            <span>
+                                CLOCK
+                            </span>
+
+                            <strong id="cpuSpeed">
+                                -- GHz
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MEMORY -->
+            <article class="panel memory-panel">
+
+                <div class="panel-heading">
+
+                    <span class="panel-label">
+                        MEMORY
+                    </span>
+
+                    <strong id="ramPercent">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="memory-number">
+
+                    <strong id="ramUsed">
+                        0 GB
+                    </strong>
+
+                    <span id="ramTotal">
+                        / 0 GB
+                    </span>
+
+                </div>
+
+
+                <div class="memory-bar">
+
+                    <div
+                        id="ramBar"
+                        class="memory-fill"
+                    ></div>
+
+                </div>
+
+
+                <div class="memory-footer">
+
+                    <span>
+                        DDR5 SYSTEM MEMORY
+                    </span>
+
+                    <span id="ramStatus">
+                        NORMAL
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- STORAGE -->
+        <section class="panel storage-panel">
+
+            <div class="panel-heading">
+
+                <span class="panel-label">
+                    STORAGE
+                </span>
+
+                <span class="storage-label">
+                    LOCAL VOLUMES
+                </span>
+
+            </div>
+
+
+            <div
+                id="disks"
+                class="storage-list"
+            ></div>
+
+        </section>
+
+
+        <!-- BOTTOM TELEMETRY -->
+        <footer class="bottom-bar">
+
+            <div class="network-group">
+
+                <div class="network-stat">
+
+                    <span class="down">
+                        ↓
+                    </span>
+
+                    <div>
+
+                        <small>
+                            DOWNLOAD
+                        </small>
+
+                        <strong id="download">
+                            0 B/s
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="network-stat">
+
+                    <span class="up">
+                        ↑
+                    </span>
+
+                    <div>
+
+                        <small>
+                            UPLOAD
+                        </small>
+
+                        <strong id="upload">
+                            0 B/s
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-info">
+
+                <span>
+                    <b>UPTIME</b>
+                    <span id="uptime">
+                        0h
+                    </span>
+                </span>
+
+                <span class="separator">
+                    |
+                </span>
+
+                <span>
+                    <b>STATUS</b>
+                    NOMINAL
+                </span>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

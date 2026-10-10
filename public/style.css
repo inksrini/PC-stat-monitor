@@ -1,0 +1,845 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #080909;
+
+    --panel: #111313;
+
+    --panel-light: #151716;
+
+    --border: #272a29;
+
+    --text: #e5e1d7;
+
+    --muted: #777b77;
+
+    --accent: #d2a24c;
+
+    --track: #242725;
+
+    --danger: #c96b55;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #080909;
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+
+    width: 100%;
+    height: 100vh;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding:
+        14px
+        18px
+        12px;
+
+    display: grid;
+
+    grid-template-rows:
+        54px
+        minmax(210px, 1fr)
+        minmax(125px, 0.55fr)
+        48px;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto auto;
+
+    align-items: center;
+
+    gap: 28px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    padding:
+        0 4px 8px;
+}
+
+
+.identity h1 {
+
+    font-size: 25px;
+
+    letter-spacing:
+        1.8px;
+
+    font-weight: 800;
+}
+
+
+.identity span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13.7px;
+
+    margin-top: 2px;
+
+    letter-spacing:
+        0.4px;
+}
+
+
+.live-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        1.3px;
+}
+
+
+.pulse {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+}
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+
+.clock {
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    color: #aab7c5;
+
+    font-size: 13px;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =========================================
+   PANELS
+========================================= */
+
+.panel {
+    background: var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.panel-label {
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing:
+        1.7px;
+}
+
+
+/* =========================================
+   MAIN CPU + RAM
+========================================= */
+
+.main-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    min-height: 0;
+}
+
+
+/* =========================================
+   CPU
+========================================= */
+
+.cpu-panel {
+
+    padding:
+        16px 22px;
+
+    position: relative;
+}
+
+
+.cpu-content {
+
+    height:
+        calc(100% - 20px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 55px;
+}
+
+
+.cpu-ring {
+
+    width: 165px;
+    height: 165px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        conic-gradient(
+            var(--accent)
+            0deg,
+            var(--accent)
+            0deg,
+            var(--track)
+            0deg
+        );
+
+    position: relative;
+
+    transition:
+        background 0.5s ease;
+}
+
+
+.cpu-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border-radius: 50%;
+
+    background:
+        #0b1016;
+
+    border:
+        1px solid #202a35;
+}
+
+
+.ring-center {
+
+    position: relative;
+
+    text-align: center;
+}
+
+
+.ring-center strong {
+
+    display: block;
+
+    font-size: 52px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing:
+        -2px;
+}
+
+
+.ring-center span {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing:
+        2px;
+}
+
+
+.cpu-data {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+.big-metric {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.big-metric span {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing:
+        1.3px;
+}
+
+
+.big-metric strong {
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 34px;
+
+    letter-spacing:
+        -1px;
+}
+
+
+/* =========================================
+   MEMORY
+========================================= */
+
+.memory-panel {
+
+    padding:
+        16px 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.panel-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.panel-heading > strong {
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 25px;
+}
+
+
+.memory-number {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 5px;
+}
+
+
+.memory-number strong {
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 42px;
+
+    letter-spacing:
+        -2px;
+}
+
+
+.memory-number span {
+
+    color: var(--muted);
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 14px;
+}
+
+
+.memory-bar {
+
+    height: 12px;
+
+    margin-top: 16px;
+
+    border-radius: 20px;
+
+    background:
+        var(--track);
+
+    overflow: hidden;
+}
+
+
+.memory-fill {
+
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: inherit;
+
+    background:
+        var(--accent);
+
+    transition:
+        width 0.6s ease;
+}
+
+
+.memory-footer {
+
+    margin-top: 13px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing:
+        1px;
+}
+
+
+#ramStatus {
+
+    color:
+        var(--accent);
+}
+
+
+/* =========================================
+   STORAGE
+========================================= */
+
+.storage-panel {
+
+    padding:
+        14px 18px;
+}
+
+
+.storage-label {
+
+    color:
+        #465465;
+
+    font-size: 8px;
+
+    letter-spacing:
+        1.2px;
+}
+
+
+.storage-list {
+
+    height:
+        calc(100% - 25px);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    grid-template-rows:
+        1fr 1fr;
+
+    column-gap: 30px;
+
+    row-gap: 9px;
+
+    margin-top: 7px;
+}
+
+
+.disk-row {
+
+    display: grid;
+
+    grid-template-columns:
+        32px 1fr 48px;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.disk-name {
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.disk-track {
+
+    height: 7px;
+
+    background:
+        var(--track);
+
+    border-radius:
+        10px;
+
+    overflow: hidden;
+}
+
+
+.disk-fill {
+
+    height: 100%;
+
+    border-radius:
+        inherit;
+
+    background:
+        var(--accent);
+
+    transition:
+        width 0.6s ease;
+}
+
+.disk-percent {
+
+    text-align: right;
+
+    color: #9aa8b7;
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 16px;
+}
+
+
+.disk-details {
+
+    grid-column:
+        2 / 4;
+
+    color:
+        #536171;
+
+    font-size: 7px;
+
+    margin-top:
+        -6px;
+}
+
+
+/* =========================================
+   BOTTOM BAR
+========================================= */
+
+.bottom-bar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 8px;
+}
+
+
+.network-group {
+
+    display: flex;
+
+    gap: 28px;
+}
+
+
+.network-stat {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.network-stat > span {
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.network-stat .down {
+
+    color:
+        var(--accent);
+}
+
+
+.network-stat .up {
+
+    color:
+        var(--accent-blue);
+}
+
+
+.network-stat small {
+
+    display: block;
+
+    color:
+        var(--muted);
+
+    font-size: 7px;
+
+    letter-spacing:
+        1px;
+}
+
+
+.network-stat strong {
+
+    display: block;
+
+    margin-top: 1px;
+
+    font-family:
+        "Consolas",
+        monospace;
+
+    font-size: 20px;
+}
+
+
+.system-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color:
+        var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing:
+        0.8px;
+}
+
+
+.system-info b {
+
+    color:
+        #5e6d7d;
+
+    margin-right:
+        5px;
+}
+
+
+.separator {
+
+    color:
+        #28323e;
+}
+
+.ring-center strong,
+.big-metric strong,
+.memory-number strong,
+.panel-heading > strong {
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   SMALLER WINDOWS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .cpu-content {
+
+        gap: 25px;
+    }
+
+    .cpu-ring {
+
+        width: 135px;
+        height: 135px;
+    }
+
+    .ring-center strong {
+
+        font-size: 34px;
+    }
+
+    .big-metric strong {
+
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL LANDSCAPE
+========================================= */
+
+@media (max-height: 500px) {
+
+    .dashboard {
+
+        padding: 8px 12px;
+
+        grid-template-rows:
+            45px
+            minmax(165px, 1fr)
+            minmax(100px, 0.55fr)
+            38px;
+
+        gap: 7px;
+    }
+
+    .cpu-ring {
+
+        width: 125px;
+        height: 125px;
+    }
+
+    .memory-number {
+
+        margin-top: 12px;
+    }
+
+    .memory-number strong {
+
+        font-size: 28px;
+    }
+
+    .memory-bar {
+
+        margin-top: 10px;
+    }
+
+    .storage-panel {
+
+        padding:
+            10px 14px;
+    }
+}
