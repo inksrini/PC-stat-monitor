@@ -104,6 +104,4 @@ pc-stat-monitor/
 
 This project is intended for personal, local use. Keep the server bound to `127.0.0.1` if you only need to show the dashboard on a display connected to the same PC. Do not expose the service directly to the public internet or configure router port forwarding.
 
-## License
 
-No license has been added yet. Unless a license is included in the repository, others should not assume they have permission to reuse, modify, or distribute the code. Add a license file if you want to allow reuse.
