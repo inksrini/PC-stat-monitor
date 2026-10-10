@@ -19,13 +19,10 @@ The dashboard is designed to be simple: no frontend framework, no database, and 
 
 ## Preview
 
-Add a screenshot or photo of the dashboard here, for example:
-
-```markdown
 ![PC Stat Monitor running on an iPhone 5s](screenshots/iphone-dashboard.jpeg)
-```
 
-To use that preview, add your image to a `screenshots/` folder and update the filename above.
+
+
 
 ## Requirements
 
